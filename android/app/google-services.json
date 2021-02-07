@@ -1,0 +1,64 @@
+{
+  "project_info": {
+    "project_number": "644330715635",
+    "firebase_url": "https://callgpnow.firebaseio.com",
+    "project_id": "callgpnow",
+    "storage_bucket": "callgpnow.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644330715635:android:cefe4ec92e5265314fba86",
+        "android_client_info": {
+          "package_name": "com.telemedicine.maulaji"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "644330715635-22vtss7ip9g87sk7v3bbnsohtijhv7aa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.telemedicine.maulaji",
+            "certificate_hash": "44670ba093869e2641c5eb6f80091275664cba88"
+          }
+        },
+        {
+          "client_id": "644330715635-kg48le3ap7nodk7qo4m9gveth4m7ced2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.telemedicine.maulaji",
+            "certificate_hash": "8d5970b1854f9cc2259e41f77e2583d6930c8ef9"
+          }
+        },
+        {
+          "client_id": "644330715635-pd5v5f1pcjs07dbahke8vu2tmhe6tcrr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.telemedicine.maulaji",
+            "certificate_hash": "634530965622b6d2e2d5bd7ddeea9cee715c5208"
+          }
+        },
+        {
+          "client_id": "644330715635-ishhpd20fpp7pt92cqiahtbj64dh9at9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDePe0we_Ha0oOpgQhHf4Lolr1kqERtOVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "644330715635-ishhpd20fpp7pt92cqiahtbj64dh9at9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
