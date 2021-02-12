@@ -374,7 +374,7 @@ class _DoctorSearchActivityUseCaseTwoState
                                                             Colors
                                                                 .white,
                                                             title: Text(
-                                                              "Choose Depatment",
+                                                              "Choose Depatment ",
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .black),
