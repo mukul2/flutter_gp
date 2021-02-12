@@ -4,6 +4,8 @@ import 'package:maulaji/view/patient/screens/PatientLogin/ui.dart';
 import 'package:maulaji/view/patient/screens/Pharmacey/ui.dart';
 import 'package:flutter/material.dart';
 
+import '../guest_activity.dart';
+
 class BlockClickManager{
   static BlockClickManager block ;
 
@@ -40,6 +42,14 @@ class BlockClickManager{
           context,
           MaterialPageRoute(
               builder: (context) => PharmaceyActivity()));
+    });
+  }
+  clickedOpenGuest (BuildContext context){
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => GuestActivity()));
     });
   }
 

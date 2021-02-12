@@ -69,9 +69,9 @@ class _PatientProfileViewForDoctorState extends State<PatientProfileViewForDocto
                           List prescriptions = [] ;
                           if(projectSnap.data[index]["medicine_list"]!=null && projectSnap.data[index]["medicine_list"].toString().length>3){
 
-                            // dynamic raw  = jsonEncode(projectSnap.data[index]["medicine_list"].toString());
+                             String raw  = jsonEncode(projectSnap.data[index]["medicine_list"]);
 
-                           //  prescriptions = jsonDecode("[{"medName":"Roxvita Soft",");
+                             prescriptions = jsonDecode(raw);
                           }else{
 
                           }
@@ -105,14 +105,11 @@ class _PatientProfileViewForDoctorState extends State<PatientProfileViewForDocto
                                                title: Text(projectSnap.data[index]["advice"]),
                                                subtitle:Text("Advice") ,
                                              ),
-                                              ListTile(
-                                               title: Text(projectSnap.data[index]["medicine_list"][0]["medName"]),
-                                               subtitle:Text("pres") ,
-                                             ),
-                                              projectSnap.data[index]["medicine_list"]!=null?
+
+                                              prescriptions.length>0?
                                               ListView.builder(
                                                 shrinkWrap: true,
-                                                itemCount: projectSnap.data[index]["medicine_list"] == null ? 0 : projectSnap.data[index]["medicine_list"].length,
+                                                itemCount: prescriptions == null ? 0 :prescriptions.length,
 
                                                 itemBuilder: (BuildContext context, int index) {
                                                   return new InkWell(
@@ -126,8 +123,15 @@ class _PatientProfileViewForDoctorState extends State<PatientProfileViewForDocto
                                                         child: ListTile(
                                                           title: Padding(
                                                             padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-                                                            child: new Text(projectSnap.data[index]["medicine_list"]["medName"].toString(),
+                                                            child: new Text(prescriptions[index]["medName"].toString(),
                                                               style: TextStyle(fontWeight: FontWeight.bold),),
+                                                          ), subtitle: Padding(
+                                                            padding: EdgeInsets.fromLTRB(10, 00, 0, 10),
+                                                            child:  Row(children: [
+                                                              Text(prescriptions[index]["mg"].toString()+"   ",),
+                                                              Text(prescriptions[index]["dose"].toString()+"   ",),
+                                                              Text(prescriptions[index]["continue"].toString(),),
+                                                            ],),
                                                           ),
 
                                                         ),
@@ -147,7 +151,38 @@ class _PatientProfileViewForDoctorState extends State<PatientProfileViewForDocto
                   )
                       : Center(child: CircularProgressIndicator());
                 }),
-            Icon(Icons.directions_bike),
+            FutureBuilder(
+                future: get_lab_reports(targetuser:widget.appointmentInfo["patient"] ),
+                builder: (context, projectSnap) {
+                  return projectSnap.data != null
+                      ? ListView.builder(
+
+                    shrinkWrap: true,
+                    itemCount: projectSnap.data == null ? 0 :projectSnap.data.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                        onTap: (){
+
+
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      Scaffold(
+                                        appBar: AppBar(title: Text("Lab Report Details"),),
+                                        body:SingleChildScrollView(
+                                       child: Text(projectSnap.data[index].toString()),
+                                        ),
+                                      )));
+                        },
+                      leading: Text(index.toString()),
+                        subtitle: Text(projectSnap.data[index]["report"],),
+
+                      );
+                    },
+                  )
+                      : Center(child: CircularProgressIndicator());
+                }),
             Icon(Icons.directions_bike),
           ],
         ),

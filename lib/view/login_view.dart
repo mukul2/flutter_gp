@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:maulaji/main.dart';
 import 'package:maulaji/models/login_response.dart';
 import 'package:maulaji/streams/AuthControllerStream.dart';
 import 'package:maulaji/utils/commonWidgets.dart';
@@ -69,11 +70,11 @@ class LoginUI extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      color: Colors.blueAccent,
+      color: primaryColor,
       theme: ThemeData(
         fontFamily: 'Poppins',
-        primaryColor: Colors.blue,
-        accentColor: Colors.blueAccent,
+        primaryColor:primaryColor,
+
       ),
       title: appTitle,
       home: Scaffold(

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:maulaji/cachedData.dart';
 import 'package:maulaji/chat/model/chat_screen.dart';
+import 'package:maulaji/models/product_model.dart';
 import 'package:maulaji/view/patient/OnlineDoctorsList.dart';
 import 'package:maulaji/view/patient/patient_view.dart';
 import 'package:maulaji/view/patient/screens/GPlistSearchActivity/ui.dart';
@@ -13,8 +14,11 @@ import 'package:custom_rounded_rectangle_border/custom_rounded_rectangle_border.
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
+
+import '../../../product_details_activity.dart';
 String PHOTO_BASE_PHARMACY = "https://callgpnow.com/images/";
 Color primaryColor = Colors.red;
+Color secondaryColor =  Color.fromARGB(255, 0, 15, 165);
 class DoctorSearchActivityUseCaseTwo extends StatefulWidget {
   List downloadedData = [];
   List showData = [];
@@ -254,8 +258,8 @@ class _DoctorSearchActivityUseCaseTwoState
                           child: Text(
                             "Goodbye doubts",
                             style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold),
+                                color: Color.fromARGB(255, 0, 15, 165),
+                                fontWeight: FontWeight.w900),
                           ),
                         ),
                         Padding(
@@ -1434,7 +1438,7 @@ class _DoctorSearchActivityUseCaseTwoState
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             "Start Shopping",
-                            style: TextStyle(color: Colors.blue),
+                            style: TextStyle(color:primaryColor),
                           ),
                         ))
                       ],
@@ -1883,24 +1887,34 @@ class _ShopActivityState extends State<ShopActivity> {
                                                                                         if (snapshot.data.isEmpty)
                                                                                           return Text("Please wait");
                                                                                         else
-                                                                                          return Center(
-                                                                                            child: Container(
-                                                                                              width: double.infinity,
-                                                                                              height: double.infinity,
-                                                                                              child: Padding(
-                                                                                                padding: EdgeInsets.all(0),
-                                                                                                child: Card(
-                                                                                                  child: Column(
-                                                                                                    children: [
-                                                                                                      Image.network(
-                                                                                                        PHOTO_BASE_PHARMACY +
-                                                                                                            snapshot2.data[index].img +
-                                                                                                            ".jpg",
-                                                                                                        height: 130,
-                                                                                                        width: 150,
-                                                                                                      ),
-                                                                                                      Text(snapshot2.data[index].name)
-                                                                                                    ],
+                                                                                          return InkWell(
+                                                                                            onTap: (){
+
+                                                                                              Navigator.push(
+                                                                                                  context,
+                                                                                                  MaterialPageRoute(
+                                                                                                      builder: (context) =>
+                                                                                                          ProductDetailsPage(snapshot2.data[index])));
+                                                                                            },
+                                                                                            child: Center(
+                                                                                              child: Container(
+                                                                                                width: double.infinity,
+                                                                                                height: double.infinity,
+                                                                                                child: Padding(
+                                                                                                  padding: EdgeInsets.all(0),
+                                                                                                  child: Card(
+                                                                                                    child: Column(
+                                                                                                      children: [
+                                                                                                        Image.network(
+                                                                                                          PHOTO_BASE_PHARMACY +
+                                                                                                              snapshot2.data[index].img +
+                                                                                                              ".jpg",
+                                                                                                          height: 130,
+                                                                                                          width: 150,
+                                                                                                        ),
+                                                                                                        Text(snapshot2.data[index].name)
+                                                                                                      ],
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ),
                                                                                               ),
@@ -1966,24 +1980,32 @@ class _ShopActivityState extends State<ShopActivity> {
                                                                                         if (snapshot.data.isEmpty)
                                                                                           return Text("Please wait");
                                                                                         else
-                                                                                          return Center(
-                                                                                            child: Container(
-                                                                                              width: double.infinity,
-                                                                                              height: double.infinity,
-                                                                                              child: Padding(
-                                                                                                padding: EdgeInsets.all(0),
-                                                                                                child: Card(
-                                                                                                  child: Column(
-                                                                                                    children: [
-                                                                                                      Image.network(
-                                                                                                        PHOTO_BASE_PHARMACY +
-                                                                                                            snapshot2.data[index].img +
-                                                                                                            ".jpg",
-                                                                                                        height: 130,
-                                                                                                        width: 150,
-                                                                                                      ),
-                                                                                                      Text(snapshot2.data[index].name)
-                                                                                                    ],
+                                                                                          return InkWell(
+                                                                                            onTap: (){
+                                                                                                Navigator.push(
+                                                                                                  context,
+                                                                                                  MaterialPageRoute(
+                                                                                                      builder: (context) =>
+                                                                                                          ProductDetailsPage(snapshot2.data[index])));
+                                                                                            },child: Center(
+                                                                                              child: Container(
+                                                                                                width: double.infinity,
+                                                                                                height: double.infinity,
+                                                                                                child: Padding(
+                                                                                                  padding: EdgeInsets.all(0),
+                                                                                                  child: Card(
+                                                                                                    child: Column(
+                                                                                                      children: [
+                                                                                                        Image.network(
+                                                                                                          PHOTO_BASE_PHARMACY +
+                                                                                                              snapshot2.data[index].img +
+                                                                                                              ".jpg",
+                                                                                                          height: 130,
+                                                                                                          width: 150,
+                                                                                                        ),
+                                                                                                        Text(snapshot2.data[index].name)
+                                                                                                      ],
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ),
                                                                                               ),
@@ -2295,43 +2317,4 @@ class _SecondlevelShopState extends State<SecondlevelShop> {
   }
 }
 
-class ProductModel {
-  String id;
-  String name;
-  String img;
-  String price;
-  String category;
-  String subcategory;
-  String description;
 
-  ProductModel(
-      {this.id,
-      this.name,
-      this.img,
-      this.price,
-      this.category,
-      this.subcategory,
-      this.description});
-
-  ProductModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    img = json['img'];
-    price = json['price'];
-    category = json['category'];
-    subcategory = json['subcategory'];
-    description = json['description'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['img'] = this.img;
-    data['price'] = this.price;
-    data['category'] = this.category;
-    data['subcategory'] = this.subcategory;
-    data['description'] = this.description;
-    return data;
-  }
-}

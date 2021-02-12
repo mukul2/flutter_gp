@@ -30,6 +30,34 @@ Future<List<dynamic>> get_prescriptions({String targetuser}) async {
     }
 
 }
+Future<List<dynamic>> get_lab_reports({String targetuser}) async {
+
+  String uid ;
+  String utype = await getUserType();
+  if(utype=="d"){
+    uid = await getDoctor_id();
+  }else {
+    uid = await getPatientID();
+  }
+    // String ion =await getIon_user_id();
+    final http.Response response = await http.post(
+      'https://callgpnow.com/api_callgpnow/get_lab_reports.php',
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{'id': targetuser}),
+    );
+    print("lab report downlaoded");
+    print(response.body);
+    print(uid);
+    //showThisToast(response.statusCode.toString());
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    } else {
+     // downloadMyHomeVisitList();
+    }
+
+}
 Future<List<dynamic>> downloadMyHomeVisitList() async {
 
   String uid ;

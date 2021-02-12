@@ -392,7 +392,7 @@ class _PatientAPPNewState extends State<PatientAPPNew> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData(fontFamily: 'Poppins'),
+        theme: ThemeData(fontFamily: 'Poppins',primaryColor: primaryColor),
         home: Scaffold(
 
          drawer: Drawer(
@@ -562,31 +562,31 @@ class _PatientAPPNewState extends State<PatientAPPNew> {
                 BottomNavigationBarItem(
                     icon: new Icon(
                       Icons.home,
-                      color:widget. bottomSelectedIndex == 0 ? Colors.blue : Colors.grey,
+                      color:widget. bottomSelectedIndex == 0 ? primaryColor : Colors.grey,
                     ),
                     title: new Text(
                       'Search Doctor',
-                      style: TextStyle(color: widget. bottomSelectedIndex == 0 ? Colors.blue : Colors.grey),
+                      style: TextStyle(color: widget. bottomSelectedIndex == 0 ? primaryColor : Colors.grey),
                     )),
 
                 BottomNavigationBarItem(
                   icon: new Icon(
                     Icons.notification_important,
-                    color:widget. bottomSelectedIndex == 1 ? Colors.blue : Colors.grey,
+                    color:widget. bottomSelectedIndex == 1 ?primaryColor : Colors.grey,
                   ),
                   title: new Text(
                     'My Appointments',
-                    style: TextStyle(color:widget. bottomSelectedIndex == 1 ? Colors.blue : Colors.grey),
+                    style: TextStyle(color:widget. bottomSelectedIndex == 1 ?primaryColor : Colors.grey),
                   ),
                 ),
                 BottomNavigationBarItem(
                     icon: Icon(
                       Icons.supervised_user_circle,
-                      color:widget. bottomSelectedIndex == 2 ? Colors.blue : Colors.grey,
+                      color:widget. bottomSelectedIndex == 2 ? primaryColor: Colors.grey,
                     ),
                     title: Text(
                       'Profile',
-                      style: TextStyle(color: widget. bottomSelectedIndex == 2 ? Colors.blue : Colors.grey),
+                      style: TextStyle(color: widget. bottomSelectedIndex == 2 ? primaryColor : Colors.grey),
                     )),
 
               ],

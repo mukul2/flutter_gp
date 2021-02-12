@@ -1,3 +1,4 @@
+import 'package:maulaji/main.dart';
 import 'package:maulaji/utils/commonWidgets.dart';
 import 'package:maulaji/view/doctor/Widgets.dart';
 import 'package:maulaji/view/login_view.dart';
@@ -44,7 +45,7 @@ Padding inputFieldEmail( ){
 
       //focusNode: myFocusNode,
       style: TextStyle(
-        color: Colors.blue,
+        color: primaryColor,
       ),
       initialValue: "",
 
@@ -55,7 +56,7 @@ Padding inputFieldEmail( ){
         }
         return null;
       },
-      cursorColor: Colors.blue,
+      cursorColor: primaryColor,
       decoration: InputDecoration(
           fillColor: Color.fromARGB(255, 234, 234, 234),
           filled: true,
@@ -73,8 +74,8 @@ Padding inputFieldEmail( ){
                   color: Color.fromARGB(255, 234, 234, 234),
                   width: 10.0)),
           labelText: "Email",
-          focusColor: Colors.blue,
-          labelStyle: TextStyle(color: Colors.blue)),
+          focusColor: primaryColor,
+          labelStyle: TextStyle(color: primaryColor)),
       keyboardType: TextInputType.emailAddress,
       autocorrect: false,
     ),
@@ -89,7 +90,7 @@ Padding inputFieldPassword( ){
 
       //focusNode: myFocusNode,
       style: TextStyle(
-        color: Colors.blue,
+        color: primaryColor,
       ),
       initialValue: "",
 
@@ -100,7 +101,7 @@ Padding inputFieldPassword( ){
         }
         return null;
       },
-      cursorColor: Colors.blue,
+      cursorColor: primaryColor,
       decoration: InputDecoration(
           fillColor: Color.fromARGB(255, 234, 234, 234),
           filled: true,
@@ -118,8 +119,8 @@ Padding inputFieldPassword( ){
                   color: Color.fromARGB(255, 234, 234, 234),
                   width: 10.0)),
           labelText: "Email",
-          focusColor: Colors.blue,
-          labelStyle: TextStyle(color: Colors.blue)),
+          focusColor:primaryColor,
+          labelStyle: TextStyle(color: primaryColor)),
       keyboardType: TextInputType.emailAddress,
       autocorrect: false,
     ),
@@ -149,7 +150,7 @@ Form loginForm(_formKey,BuildContext context,String userType){
 
               //focusNode: myFocusNode,
               style: TextStyle(
-                color: Colors.blue,
+                color: primaryColor,
               ),
               initialValue: "patient@callgpnow.com",
 
@@ -160,7 +161,7 @@ Form loginForm(_formKey,BuildContext context,String userType){
                 }
                 return null;
               },
-              cursorColor: Colors.blue,
+              cursorColor: primaryColor,
               decoration: InputDecoration(
                   fillColor: Color.fromARGB(255, 234, 234, 234),
                   filled: true,
@@ -178,8 +179,8 @@ Form loginForm(_formKey,BuildContext context,String userType){
                           color: Color.fromARGB(255, 234, 234, 234),
                           width: 10.0)),
                   labelText: "Email",
-                  focusColor: Colors.blue,
-                  labelStyle: TextStyle(color: Colors.blue)),
+                  focusColor:primaryColor,
+                  labelStyle: TextStyle(color: primaryColor)),
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
             ),
@@ -189,7 +190,7 @@ Form loginForm(_formKey,BuildContext context,String userType){
             child: TextFormField(
              // focusNode: myFocusNode2,
               style: TextStyle(
-                color: Colors.blue,
+                color:primaryColor,
               ),
               initialValue: "12345",
               validator: (value) {
@@ -217,7 +218,7 @@ Form loginForm(_formKey,BuildContext context,String userType){
                   labelText: "Password",
                   focusColor: Color.fromARGB(255, 189, 62, 68),
                   labelStyle: TextStyle(
-                    color: Colors.blue,
+                    color: primaryColor,
                   )),
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
@@ -229,7 +230,7 @@ Form loginForm(_formKey,BuildContext context,String userType){
                 height: 55,
                 width: double.infinity, // match_parent
                 child: RaisedButton(
-                  color: Colors.blue,
+                  color: primaryColor,
                   onPressed: () async {
                     // Validate returns true if the form is valid, or false
                     // otherwise.
@@ -258,7 +259,7 @@ Form loginForm(_formKey,BuildContext context,String userType){
                     "Sign Up Here",
                     style: TextStyle(
                         fontSize: 18,
-                        color: Colors.blue,
+                        color: primaryColor,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -278,10 +279,11 @@ Form loginForm(_formKey,BuildContext context,String userType){
                 padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                 child: Text(
                   "Forgot password ?",
-                  style: TextStyle(color: Colors.blue),
+                  style: TextStyle(color:primaryColor,
                 ),
               ),
             ),
+          ),
           ),
         ],
       ),

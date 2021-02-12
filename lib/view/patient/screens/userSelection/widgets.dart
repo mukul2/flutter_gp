@@ -101,17 +101,17 @@ Widget twoButton(BuildContext context){
           ),
         ),
         Visibility(
-          visible: false,
+          visible: true,
           child: Padding(
             padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
             child: InkWell(
-              onTap:(){BlockClickManager.getInstance().clickedOpenPharmacey(context);},
+              onTap:(){BlockClickManager.getInstance().clickedOpenGuest(context);},
               child: Container(
                 width: double.infinity,
                 height: 50,
                 child: Center(
                   child: Text(
-                    "Pharmacy Store",
+                    "Continue as Guest",
                     style: TextStyle(
                         fontSize: 14,
                         color: Colors.white,

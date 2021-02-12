@@ -1,3 +1,4 @@
+import 'package:maulaji/main.dart';
 import 'package:maulaji/view/patient/screens/PatientHomePage/stream.dart';
 import 'package:maulaji/view/patient/screens/PatientHomePage/widget_home.dart';
 import 'package:maulaji/view/patient/screens/PatientHomePage/widgets.dart';
@@ -20,7 +21,7 @@ class PatientAPP extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
           fontFamily: 'Poppins',
-          primaryColor: Colors.blue,
+          primaryColor:primaryColor,
           accentColor: Colors.blueAccent),
       home:  StreamBuilder<Status>(
           stream: PatientHomeStream.getInstance().onAuthChanged,
